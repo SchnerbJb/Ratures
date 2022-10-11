@@ -1,6 +1,6 @@
 import styles from '../styles/Home.module.css'
 
-const AddBook = ({ handleSubmit }: any) => {
+const AddBook = ({ newBook, handleSubmit }: any) => {
 
     return (
 

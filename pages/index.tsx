@@ -6,16 +6,6 @@ import DisplayBooks from './DisplayBooks';
 import { prisma } from "../lib/prisma"
 import { FormEvent, SyntheticEvent, useState } from 'react';
 
-interface Books {
-    books: {
-        id: number,
-        title: string,
-        author: string,
-        synopsis: string,
-        rating: number,
-    }[]
-}
-
 const Home: NextPage<Books> = (initialBooks) => {
 
     const [books, setBooks] = useState(initialBooks.books)
