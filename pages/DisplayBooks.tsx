@@ -12,7 +12,6 @@ interface Books {
 
 const DisplayBooks = ({ books }: Books) => {
 
-    console.log(books)
     return (
         <div>
             {

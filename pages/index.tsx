@@ -31,7 +31,6 @@ const Home: NextPage<Books> = (initialBooks) => {
             synopsis: formData.get("synopsis"),
             rating: Number(formData.get("rating")),
         }
-        console.log(data)
         await fetch('api/add-book', {
             body: JSON.stringify(data),
             headers: {
