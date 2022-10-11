@@ -1,3 +1,11 @@
+
+@font-face {
+  font-family: 'MilkyCoffee';
+  src: url('../asset/MilkyCoffee/MilkyCoffee.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
