@@ -4,13 +4,14 @@ import styles from '../styles/Home.module.css'
 import AddBook from './AddBook';
 import DisplayBooks from './DisplayBooks';
 import { prisma } from "../lib/prisma"
-import { FormEvent, SyntheticEvent, useState } from 'react';
+import { FormEvent, useState } from 'react';
+import { Book, Books } from '../shared/types';
 
 const Home: NextPage<Books> = (initialBooks) => {
 
     const [books, setBooks] = useState(initialBooks.books)
 
-    const handleSubmit = async (event: SyntheticEvent<HTMLFormElement, FormEvent>) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget)
@@ -28,7 +29,9 @@ const Home: NextPage<Books> = (initialBooks) => {
             },
             method: 'POST',
         })
-        event.currentTarget.reset()
+        const target = event.target as HTMLFormElement
+        target.reset()
+        setBooks([...books, data as Book])
     }
 
     return (

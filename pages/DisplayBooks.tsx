@@ -1,19 +1,10 @@
+import { Books } from "../shared/types";
 import styles from "../styles/Home.module.css"
-
-interface Books {
-    books: {
-        id: number,
-        title: string,
-        author: string,
-        synopsis: string,
-        rating: number,
-    }[]
-}
 
 const DisplayBooks = ({ books }: Books) => {
 
     return (
-        <div>
+            <>
             {
                 books.map((book) => (
                     <div className={styles.card} key={book.id}>
@@ -24,7 +15,7 @@ const DisplayBooks = ({ books }: Books) => {
                     </div>
                 ))
             }
-        </div>
+            </>
     );
 }
 export default DisplayBooks;
