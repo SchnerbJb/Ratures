@@ -3,6 +3,15 @@ import styles from "../styles/Home.module.css"
 
 const DisplayBooks = ({ books }: Books) => {
 
+    if (books === undefined) {
+            books = [{
+                    id: 0,
+                    title: '',
+                    author: '',
+                    synopsis: '',
+                    rating: 0
+                }]
+        }
     return (
             <>
             {
