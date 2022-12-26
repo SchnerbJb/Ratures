@@ -1,38 +1,15 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import AddBook from './AddBook';
-import DisplayBooks from './DisplayBooks';
 import { prisma } from "../lib/prisma"
-import { FormEvent, useState } from 'react';
-import { Book, Books } from '../shared/types';
+import { Books } from '../shared/types';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import Link from 'next/link';
+import DisplayBooks from '../components/DisplayBooks';
 
 const Home: NextPage<Books> = (initialBooks) => {
 
-    const [books, setBooks] = useState(initialBooks.books)
-
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.currentTarget)
-
-        const data = {
-            title: formData.get("title"),
-            author: formData.get("author"),
-            synopsis: formData.get("synopsis"),
-            rating: Number(formData.get("rating")),
-        }
-        await fetch('api/add-book', {
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            method: 'POST',
-        })
-        const target = event.target as HTMLFormElement
-        target.reset()
-        setBooks([...books, data as Book])
-    }
 
     return (
         <div className={styles.container}>
@@ -43,6 +20,8 @@ const Home: NextPage<Books> = (initialBooks) => {
             </Head>
 
             <main className={styles.main}>
+
+
                 <h1 className={styles.title}>
                     RATURES
                 </h1>
@@ -52,10 +31,12 @@ const Home: NextPage<Books> = (initialBooks) => {
                 </h3>
 
                 <div className={styles.grid}>
-                    <DisplayBooks books={books} />
+                    <DisplayBooks books={initialBooks.books} />
                 </div>
 
-                <AddBook handleSubmit={handleSubmit} />
+                <Link href='/add-book'>
+                    <FontAwesomeIcon style={{cursor: 'pointer', width: 50, height: 50}} icon={faPlus} />
+                </Link>
             </main>
 
             <footer className={styles.footer}>
