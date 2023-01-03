@@ -20,11 +20,11 @@ const BookId = ({ book }: InferGetServerSidePropsType<typeof getServerSideProps>
 
     return (
 
-        <div className={styles.card} key={book.id}>
-            <h2>{book.title}</h2>
+        <div className={styles.bookDetails} key={book.id}>
+            <h2 className={styles.titleDetails}>{book.title}</h2>
             <h4>By {book.author}</h4>
             <p>{book.synopsis}</p>
-            <p className={styles.rating}>{book.rating} / 5</p>
+            <p>{book.rating} / 5</p>
         </div>
     )
 }

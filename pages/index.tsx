@@ -3,10 +3,8 @@ import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { prisma } from "../lib/prisma"
 import { Books } from '../shared/types';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import Link from 'next/link';
 import DisplayBooks from '../components/DisplayBooks';
+import Navbar from '../components/Navbar';
 
 const Home: NextPage<Books> = (initialBooks) => {
 
@@ -21,22 +19,11 @@ const Home: NextPage<Books> = (initialBooks) => {
 
             <main className={styles.main}>
 
-
-                <h1 className={styles.title}>
-                    RATURES
-                </h1>
-
-                <h3 className={styles.description}>
-                    Rate your books
-                </h3>
-
+                <Navbar />
                 <div className={styles.grid}>
                     <DisplayBooks books={initialBooks.books} />
                 </div>
 
-                <Link href='/add-book'>
-                    <FontAwesomeIcon style={{cursor: 'pointer', width: 50, height: 50}} icon={faPlus} />
-                </Link>
             </main>
 
             <footer className={styles.footer}>
