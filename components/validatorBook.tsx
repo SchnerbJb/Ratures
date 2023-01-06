@@ -11,9 +11,6 @@ export function validateBook(data: Book): number {
     if (data.author === "") {
         errorNumber += 10
     }
-    if (data.rating === 0) {
-        errorNumber += 100
-    }
     if (data.synopsis === "") {
         errorNumber += 1000
     }

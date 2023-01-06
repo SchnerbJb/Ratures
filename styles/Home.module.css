@@ -97,10 +97,6 @@
   overflow: hidden;
 }
 
-.rating {
-  align-self: flex-end;
-}
-
 .logo {
   height: 1em;
   margin-left: 0.5rem;
