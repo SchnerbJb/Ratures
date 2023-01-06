@@ -1,15 +1,16 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/Home.module.css";
+import Link from "next/link";
 
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <a href="/">
+      <Link href="/">
         <h1 className={styles.homeIcon}>RATURES</h1>
-      </a>
+      </Link>
 
-      <a href="/add-book">
+      <Link href="/add-book">
         <FontAwesomeIcon
           style={{
             alignSelf: "center",
@@ -19,7 +20,7 @@ const Navbar = () => {
           }}
           icon={faPlus}
         />
-      </a>
+      </Link>
     </div>
   );
 };
