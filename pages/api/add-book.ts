@@ -4,7 +4,7 @@ import { prisma } from "../../lib/prisma"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
 
-  const { title, author, synopsis, rating } = req.body;
+  const { title, author, synopsis } = req.body;
 
   try {
     const book = await prisma.book.create({
@@ -12,7 +12,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         title,
         author,
         synopsis,
-        rating,
       }
     })
     res.status(200).json(book)

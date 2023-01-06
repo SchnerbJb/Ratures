@@ -1,23 +1,27 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import styles from '../styles/Home.module.css'
-import Link from 'next/link';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import styles from "../styles/Home.module.css";
 
 const Navbar = () => {
+  return (
+    <div className={styles.navbar}>
+      <a href="/">
+        <h1 className={styles.homeIcon}>RATURES</h1>
+      </a>
 
-    return (
-        <span style={{ borderBottom: '1px solid #eaeaea', padding: '2rem'}}>
-
-            <h1 className={styles.title}>
-                RATURES
-            </h1>
-
-            <Link href='/add-book'>
-                <FontAwesomeIcon style={{ alignSelf: 'center', cursor: 'pointer', width: 50, height: 50 }} icon={faPlus} />
-            </Link>
-
-        </span>
-    )
-}
+      <a href="/add-book">
+        <FontAwesomeIcon
+          style={{
+            alignSelf: "center",
+            cursor: "pointer",
+            width: 50,
+            height: 50,
+          }}
+          icon={faPlus}
+        />
+      </a>
+    </div>
+  );
+};
 
 export default Navbar;

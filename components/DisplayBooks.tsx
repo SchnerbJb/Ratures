@@ -10,19 +10,17 @@ const DisplayBooks = ({ books }: Books) => {
             title: '',
             author: '',
             synopsis: '',
-            rating: 0
         }]
     }
     return (
         <>
             {
                 books.map((book) => (
-                    <Link href={"/books/" + book.id}>
-                        <div className={styles.card} key={book.id}>
+                    <Link href={"/books/" + book.id} key={book.id}>
+                        <div className={styles.card}>
                             <h2>{book.title}</h2>
                             <h4>By {book.author}</h4>
                             <p>{book.synopsis}</p>
-                            <p className={styles.rating}>{book.rating} / 5</p>
                         </div>
                     </Link>
                 ))

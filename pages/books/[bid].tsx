@@ -24,7 +24,6 @@ const BookId = ({ book }: InferGetServerSidePropsType<typeof getServerSideProps>
             <h2 className={styles.titleDetails}>{book.title}</h2>
             <h4>By {book.author}</h4>
             <p>{book.synopsis}</p>
-            <p>{book.rating} / 5</p>
         </div>
     )
 }

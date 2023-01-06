@@ -5,7 +5,6 @@ export interface Books {
     title: string,
     author: string,
     synopsis: string,
-    rating: number,
   }[]
 }
 
@@ -14,6 +13,5 @@ export interface Book {
   title: string,
   author: string,
   synopsis: string,
-  rating: number,
 }
 

@@ -1,24 +1,45 @@
 .container {
-  padding: 0 2rem;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 .main {
   flex: 1;
-  display: flex;
 }
 
 .footer {
+  padding: 2rem;
   display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  margin-top: 20rem;
-  border-top: 1px solid #eaeaea;
+  align-items: flex-end;
   justify-content: center;
+  border-top: 1px solid #eaeaea;
+}
+
+.columnLayout {
+  display: flex;
+  flex-flow: nowrap column;
+  align-items: center;
+}
+
+.homeIcon {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 4rem;
+  font-family: MilkyCoffee;
+}
+
+.navbar {
+  margin: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
 }
 
 
 .title {
-  margin: 0;
+  margin: 4rem;
   line-height: 1.15;
   font-size: 4rem;
   font-family: MilkyCoffee;
