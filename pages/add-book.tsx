@@ -4,15 +4,11 @@ import { useRouter } from "next/router";
 import Layout from "../components/Layout";
 
 const AddBook = () => {
-  const [starRating, setStarRating] = useState(0);
-
-  const setParentRating = (param: number) => {
-    setStarRating(param);
-  };
-
   const router = useRouter();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    setIsSubmitting(true);
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -23,24 +19,16 @@ const AddBook = () => {
       synopsis: String(formData.get("synopsis")),
     };
 
-    if (
-      data.title === "" ||
-      data.synopsis === "" ||
-      data.author === ""
-    ) {
-      console.log("Error on form");
-    } else {
-      console.log(data);
-      await fetch("api/add-book", {
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-      });
-      event.preventDefault();
-      router.push("/");
-    }
+    console.log(data);
+    await fetch("api/add-book", {
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+    event.preventDefault();
+    router.push("/");
   };
 
   return (
@@ -52,6 +40,7 @@ const AddBook = () => {
             className={"title"}
             name="title"
             type={"text"}
+            required
             placeholder={"Title"}
           />
           <input
@@ -64,9 +53,9 @@ const AddBook = () => {
             className={"synopsis"}
             name="synopsis"
             placeholder={"Synopsis"}
-            style={{minHeight: "5em"}}
+            style={{ minHeight: "5em" }}
           ></textarea>
-          <button type="submit">Add Book</button>
+          <button type="submit" disabled={isSubmitting}>Add Book</button>
         </form>
       </div>
     </Layout>

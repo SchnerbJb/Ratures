@@ -6,9 +6,9 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <div className={styles.navbar}>
-      <Link href="/">
-        <h1 className={styles.homeIcon}>RATURES</h1>
-      </Link>
+      <h1 className={styles.homeIcon}>
+        <Link href="/">RATURES</Link>
+      </h1>
 
       <Link href="/add-book">
         <FontAwesomeIcon
