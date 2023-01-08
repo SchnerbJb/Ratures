@@ -55,7 +55,7 @@ const AddBook = () => {
             placeholder={"Synopsis"}
             style={{ minHeight: "5em" }}
           ></textarea>
-          <button type="submit" disabled={isSubmitting}>Add Book</button>
+          <button style={{cursor: "pointer"}} type="submit" disabled={isSubmitting}>Add Book</button>
         </form>
       </div>
     </Layout>
