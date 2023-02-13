@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { Books } from "../shared/types";
+import {Books} from "../shared/types";
 import styles from "../styles/Home.module.css"
 
-const DisplayBooks = ({ books }: Books) => {
+const DisplayBooks = ({books}: Books) => {
 
-    if (books === undefined) {
+    if (books === null) {
         books = [{
             id: 0,
             title: '',
