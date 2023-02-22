@@ -1,9 +1,9 @@
 import type { GetServerSideProps, NextPage } from "next";
-import styles from "../styles/Home.module.css";
-import { prisma } from "../lib/prisma";
-import { Books } from "../shared/types";
-import DisplayBooks from "../components/DisplayBooks";
-import Layout from "../components/Layout";
+import styles from "styles/Home.module.css";
+import { prisma } from "lib/prisma";
+import { Books } from "shared/types";
+import DisplayBooks from "components/DisplayBooks";
+import Layout from "components/Layout";
 
 const Home: NextPage<Books> = (initialBooks) => {
   console.log(initialBooks.books);
@@ -19,7 +19,6 @@ const Home: NextPage<Books> = (initialBooks) => {
       </Layout>
   );
 };
-
 export default Home;
 
 export const getServerSideProps: GetServerSideProps = async () => {
