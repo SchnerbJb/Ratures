@@ -9,11 +9,11 @@ const Home: NextPage<Books> = (initialBooks) => {
   console.log(initialBooks.books);
   return (
       <Layout title={"Home"}>
-        <div className={styles.grid}>
+        <div className={styles.cards}>
           {initialBooks.books.length != 0 ? (
             <DisplayBooks books={initialBooks.books} />
           ) : (
-            <p>No books saved yet ! Click on the plus button to add one</p>
+              <p>No books saved yet ! Click on the plus button to add one</p>
           )}
         </div>
       </Layout>
